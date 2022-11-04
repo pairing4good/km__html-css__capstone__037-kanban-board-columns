@@ -37,59 +37,33 @@ afterEach(async () => {
   await browser.close();
 });
 
-describe('the class card', () => {
-  it('should have a solid, black outline', async () => {
-    const border = await page.$eval('.card', (card) => {
-      var style = window.getComputedStyle(card);
-      return style.getPropertyValue('border-style');
+describe('the board class', () => {
+  it('should display all cards horizontally', async () => {
+    const matches = await page.$eval('style', (style) => {
+      return style.innerHTML.match(/\.board.*{[\s\S][^}]*display.*:.*flex.*;/g).length;
     });
-      
-    expect(border).toBe('solid');
-  });
-  
-  it('should have a 10px margin', async () => {
-    const margin = await page.$eval('.card', (card) => {
-      var style = window.getComputedStyle(card);
-      return style.getPropertyValue('margin');
-    });
-      
-    expect(margin).toBe('10px');
-  });
-  
-  it('should have a 3px, gray shadow', async () => {
-    const shadow = await page.$eval('.card', (card) => {
-      var style = window.getComputedStyle(card);
-      return style.getPropertyValue('box-shadow');
-    });
-      
-    expect(shadow).toBe('rgb(211, 211, 211) 3px 3px 0px 0px');
-  });
-  
-  it('should be 175px wide', async () => {
-    const width = await page.$eval('.card', (card) => {
-      var style = window.getComputedStyle(card);
-      return style.getPropertyValue('width');
-    });
-      
-    expect(width).toBe('175px');
+    
+    expect(matches).toBe(1);
   });
 });
 
-describe('the row class', () => {
-  it('should be removed from the tasks in the HTML', async () => {
-    const rows = await page.$$('.row');
-    
-    expect(rows.length).toBe(0);
+describe('the cards with a status of todo', () => {
+  it('should be grouped inside a div that has an id called todo-column', async () => {
+    const cards = await page.$$('#todo-column > .card');
+    expect(cards.length).toBe(3);
   });
 });
 
-describe('the row css declaration', () => {
-      
-  it('should be removed from the style element', async () => {
-    const declarations = await page.$eval('style', (style) => {
-      return (style.innerHTML.match(/.row/g) || []).length;
-    });
-    
-    expect(declarations).toBe(0);
+describe('the cards with a status of doing', () => {
+  it('should be grouped inside a div that has an id called doing-column', async () => {
+    const cards = await page.$$('#doing-column > .card');
+    expect(cards.length).toBe(2);
+  });
+});
+
+describe('the cards with a status of done', () => {
+  it('should be grouped inside a div that has an id called done-column', async () => {
+    const cards = await page.$$('#done-column > .card');
+    expect(cards.length).toBe(3);
   });
 });
