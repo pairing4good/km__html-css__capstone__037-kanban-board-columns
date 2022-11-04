@@ -1,0 +1,36 @@
+/* Do not change this file for this exercise*/
+
+.task-status {
+    border-radius: 10px;
+    text-align: center;
+    min-width: 4em;
+    height: 1em;
+}
+
+.task-form-row {
+    display: flex;
+}
+
+.left-side {
+    flex: 90%;
+}
+
+.right-side {
+    flex: 10%;
+}
+
+div {
+    padding: 5px;
+}
+
+.todo {
+    background-color: red;
+}
+
+.doing {
+    background-color: yellow;
+}
+
+.done {
+    background-color: green;
+}

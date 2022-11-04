@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Task App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .row {
+            display: flex;
+            border-bottom: solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="task-form">
+        <div class="task-form-row">
+            <input id="task-description" class="left-side" type="text" placeholder="task description" required>
+            <select id="task-status" class="right-side" name="task-status">
+                <option value="todo">ToDo</option>
+                <option value="doing">Doing</option>
+                <option value="done">Done</option>
+            </select>
+        </div>
+        <div class="task-form-row">
+            <div class="left-side"></div>
+            <button class="right-side" type="submit">Add</button>
+        </div>
+    </form>
+    <div id="tasks">
+        <div id="task-row-1" class="row card">
+            <div id="task-description-1" class="left-side">pack spikes for track meet</div>
+            <div id="task-status-1" class="todo task-status right-side">todo</div>
+        </div>
+        <div id="task-row-2" class="row card">
+            <div id="task-description-2" class="left-side">make my bed</div>
+            <div id="task-status-2" class="todo task-status right-side">todo</div>
+        </div>
+        <div id="task-row-3" class="row card">
+            <div id="task-description-3" class="left-side">walk the dog</div>
+            <div id="task-status-3" class="todo task-status right-side">todo</div>
+        </div>
+        <div id="task-row-4" class="row card">
+            <div id="task-description-4" class="left-side">write draft english paper</div>
+            <div id="task-status-4" class="doing task-status right-side">doing</div>
+        </div>
+        <div id="task-row-5" class="row card">
+            <div id="task-description-5" class="left-side">sanding art project</div>
+            <div id="task-status-5" class="doing task-status right-side">doing</div>
+        </div>
+        <div id="task-row-6" class="row card">
+            <div id="task-description-6" class="left-side">wash the dishes</div>
+            <div id="task-status-6" class="done task-status right-side">done</div>
+        </div>
+        <div id="task-row-7" class="row card">
+            <div id="task-description-7" class="left-side">finish math homework</div>
+            <div id="task-status-7" class="done task-status right-side">done</div>
+        </div>
+        <div id="task-row-8" class="row card">
+            <div id="task-description-8" class="left-side">practice my trumpet</div>
+            <div id="task-status-8" class="done task-status right-side">done</div>
+        </div>
+    </div>
+</body>
+
+</html>
